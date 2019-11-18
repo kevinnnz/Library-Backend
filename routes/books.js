@@ -11,19 +11,17 @@ router.use(function timeLog(req, res, next){
 
 // api/books
 router.get('/', function(req, res){
-        const dbo = req.app.locals.db;
-        dbo.collection('books').find().toArray(function(err, result) {
-            if(err) {
-                res.sendStatus(424).json({
-                    'code' : 424,
-                    'message' : 'Database error'
-                }) 
-            } else {
-                res.sendStatus(200).json(result)
-            }
-
-            client.close()
-        })
+    db.collection('books').find().toArray(function(err, result) {
+        console.log(result)
+        if(err) {
+            res.status(200).json({
+                'code' : 424,
+                'message' : 'Database error'
+            }) 
+        } else {
+            res.status(200).json(result)
+        }
+    })
 })
 
 // POST api/books

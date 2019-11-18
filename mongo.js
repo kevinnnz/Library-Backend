@@ -11,6 +11,17 @@ db.books.insert({
     "cover" : "https://s3.us-east-2.amazonaws.com/dev.kevinzaworski/images/816A5yoA4TL.jpg"
 })
 
+db.books.insert({
+    "title" : "Don't Make Me Think",
+    "author" : "Steve Krug",
+    "cover" : "https://s3.us-east-2.amazonaws.com/dev.kevinzaworski/images/don-t-make-me-think-revisited.jpg"
+})
+
+db.books.update(
+    { "_id": ObjectId("5dd1e6020ab9984d9efdcee7") },
+    { $set : { "cover" : "https://s3.us-east-2.amazonaws.com/dev.kevinzaworski/images/dontmakemethink.png" }}
+)
+
 db.projects.insert({
     "projectTitle" : "Guitar Tech",
     "projectDescription" : "I built this web application to track and log the maintence of my guitars since I kept forgetting when I changed my strings last or the last time I took it into to get serviced. The front end was built using React and the back end runs ontop of a Node.js Express server.",
@@ -28,3 +39,11 @@ db.projects.insert({
         "frontend" : "https://github.com/kevinnnz/kevinnnz.github.io"
     }]
 })
+
+db.projects.update(
+    { "_id" : ObjectId("5da9de9ceaa980881500a9ac") },
+    { $set : { "links" : [{ 
+        "frontend" : "https://github.com/kevinnnz/kevinnnz.github.io",
+        "backend" : "https://github.com/kevinnnz/Kevinnz-Backend" 
+    }]}}
+)

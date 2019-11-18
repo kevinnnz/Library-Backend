@@ -1,19 +1,15 @@
 const admin = require('firebase-admin')
+require('dotenv')
 
-/*
-admin.initializeApp({
-    credential:admin.credential.applicationDefault(),
-    databaseURL: 'https://kevinnnz.firebaseio.com'
-}) */
 const firebaseConfig = {
-    apiKey: "AIzaSyBssP-9YfPwEYhSkp5UWl1c2m7g40oJfto",
-    authDomain: "kevinnnz.firebaseapp.com",
-    databaseURL: "https://kevinnnz.firebaseio.com",
-    projectId: "kevinnnz",
-    storageBucket: "kevinnnz.appspot.com",
-    messagingSenderId: "440965300084",
-    appId: "1:440965300084:web:4a9012f444bd2bb7a17621",
-    measurementId: "G-K6009ETC7D"
+    apiKey: process.env.FIREBASEAPI,
+    authDomain: process.env.AUTHDOMAIN,
+    databaseURL: process.env.DATABASEURL,
+    projectId: process.env.PROJECTID,
+    storageBucket: process.env.STORAGEBUCKET,
+    messagingSenderId: process.env.MESSAGINGSENDERID,
+    appId: process.env.APPID,
+    measurementId: process.env.MEASUREMENTID
 }
 
 admin.initializeApp(firebaseConfig)

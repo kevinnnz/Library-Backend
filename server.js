@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.json())
 
 const port = process.env.PORT
-const dbUrl = process.env.DB
+const dbUrl = process.env.DB 
 global.db = ""
 
 // Routes

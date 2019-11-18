@@ -25,8 +25,7 @@ router.get('/', function(req, res){
 
 // POST: api/projects
 router.post('/', decodeFireBaseToken, isAuthenticated, function(req, res) {
-    const dbo = req.app.locals.db;
-    dbo.collection('projects').insertOne(req.body, function(err, result){
+    db.collection('projects').insertOne(req.body, function(err, result){
         if(err) {
             res.sendStatus(500).json({
                 'code' : 500,
