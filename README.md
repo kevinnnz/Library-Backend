@@ -1,1 +1,1 @@
-![Library Logo](/images/library.png)
+<img scr="/images/library.png" alt="library logo" width="100" />
