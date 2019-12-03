@@ -48,7 +48,6 @@ Once finished your project will be set up and ready for you to build a front-end
 #### Get Projects
 ```
 \api\projects
-
 ```
 
 ```javascript
