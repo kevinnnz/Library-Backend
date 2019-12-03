@@ -41,3 +41,27 @@ npm run dev
 ```
 
 Once finished your project will be set up and ready for you to build a front-end application for.
+
+## API Endpoints 
+
+### Projects
+#### Get Projects
+```
+\api\projects
+
+```
+
+```json
+{
+    [
+        _id : STRING,
+        projectTitle : STRING,
+        projectDescription : STRING, 
+        links : [{
+            frontend : STRING, 
+            backend : STRING, 
+            demo : STRING
+        }]
+    ],
+}
+```
