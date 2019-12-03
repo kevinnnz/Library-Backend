@@ -64,3 +64,17 @@ Once finished your project will be set up and ready for you to build a front-end
     ],
 }
 ```
+
+#### Get Projects
+The following require a valid firebase token. Library supports the follow: create, update, and delete for all projects.
+```
+POST: \api\projects
+POST: \api\projects\edit
+POST: \api\projects\delete
+```
+
+## Future Updates
+Future updates coming soon:
+
++ Blog posts
++ Image upload to AWS S3 
