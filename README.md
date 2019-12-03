@@ -33,7 +33,7 @@ You're going to need to do this by hand at the moment. We're currently building 
 
 The GUI for the admin panel is currently not public yet.
 
-## Installion
+## Installation
 Open root directory of the Library server and run:
 ```
 npm install
