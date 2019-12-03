@@ -1,7 +1,7 @@
 const admin = require('../auth/firebase-admin')
 
 decodeFireBaseToken = async(req, res, next) => {
-    if(!req.headers.id_token) {
+    if(!req.headers.authorization) {
         return res.status(400).json({
             error: {
                 message : 'You did not specify any token for this request.'
@@ -10,7 +10,7 @@ decodeFireBaseToken = async(req, res, next) => {
     }
 
     try {
-        req.authToken = req.headers.id_token.split(' ')[1]
+        req.authToken = req.headers.authorization.split(' ')[1]
         const userPayload = await admin.auth().verifyIdToken(req.authToken)
         req.user = userPayload
         next()

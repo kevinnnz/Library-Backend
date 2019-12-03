@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
 
 const MongoClient = require('mongodb').MongoClient
-
+const notification = require('./services/notifications').default
 
 const books = require('./routes/books')
 const projects = require('./routes/projects')
@@ -31,8 +31,11 @@ app.use(function(res, req, next) {
 
 // Initialize connection once
 MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, function(err, database) {
-    // NOTE: implement an email service to email me if it goes down..
-    if(err) console.log(err);
+    if(err) {
+        // when service goes down, this will notify the admin
+        notification.emailWhenMongoGoesDown()
+    }
+
     db = database.db('library')
 
     // Start the application after the database connection is ready
