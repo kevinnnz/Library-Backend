@@ -1,4 +1,6 @@
-![Library Logo](/images/library.png)
+<p align="center">
+  <img width="100" src="/images/library.png">
+</p>
 
 # Welcome to Library!
 👋 This is the repo for Library, a content management server for CS grads to show off their latest projects.
