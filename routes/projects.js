@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const assert = require('assert')
 
 const Project = require('../models/project')
 const { isAuthenticated, decodeFireBaseToken } = require('../middleware/validator')
@@ -78,19 +79,22 @@ router.post('/edit', decodeFireBaseToken, isAuthenticated, function(req, res) {
 })
 
 // POST: Delete
-router.post('/delete', decodeFireBaseToken, isAuthenticated, function(req, res) {
-    let data = req.body
-    db.collection('project').deleteOne({ _id : ObjectId(data._id), function(err, res) {
-        if(err) {
+router.post('/remove', decodeFireBaseToken, isAuthenticated, function(req, res) {
+    db.collection('projects').deleteOne({ _id : ObjectId(req.body._id) }, function(err, result) {
+        if( err ) {
             res.status(422).json({
-                message : "Sorry, could not delete project."
+                err
             })
-        } else {
-            res.status(200).json({
-                message : "Success"
-            })
+        } else { 
+            if ( result.deletedCount === 0 ) {
+                res.status(422).json({
+                    message : 'Project not found.'
+                })
+            } else {
+                res.status(200).json({})
+            }
         }
-    }})
+    })
 })
 
 
